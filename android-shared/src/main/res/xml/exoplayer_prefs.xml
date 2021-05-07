@@ -14,6 +14,12 @@
         android:entries="@array/entries_exoplayer_ffmpeg_extension_preference"
         android:entryValues="@array/entryvalues_exoplayer_ffmpeg_extension_preference"/>
 
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="dtshd_pass"
+        android:summary="@string/dtshd_pass_summary"
+        android:title="@string/dtshd_pass_title" />
+
     <Preference
         android:key="exoversion"
         android:summary=""

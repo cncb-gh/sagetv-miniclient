@@ -31,6 +31,7 @@ import sagex.miniclient.MiniPlayerPlugin;
 import sagex.miniclient.android.MiniclientApplication;
 import sagex.miniclient.android.ui.AndroidUIController;
 import sagex.miniclient.android.video.BaseMediaPlayerImpl;
+import sagex.miniclient.android.video.exoplayer2.custommkv.CustomMKVExtractor;
 import sagex.miniclient.prefs.PrefStore;
 import sagex.miniclient.uibridge.Dimension;
 import sagex.miniclient.util.Utils;
@@ -655,7 +656,11 @@ public class Exo2MediaPlayerImpl extends BaseMediaPlayerImpl<SimpleExoPlayer, Da
 
             //mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(sageTVurl));
 
-            mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(MediaItem.fromUri(Uri.parse(sageTVurl)));
+            // cncb - Use custom extractor to enable DTS-HD pass-through
+            if( sageTVurlFinal.endsWith(".mkv") && this.context.getClient().properties().getBoolean(PrefStore.Keys.dtshd_pass, false))
+                mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory, CustomMKVExtractor.FACTORY).createMediaSource(MediaItem.fromUri(Uri.parse(sageTVurl)));
+            else
+                mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(MediaItem.fromUri(Uri.parse(sageTVurl)));
 
 
 

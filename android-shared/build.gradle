@@ -50,7 +50,6 @@ android {
     }
     buildToolsVersion "${androidBuildToolsVersion}"
 
-
 }
 
 configurations {
@@ -104,6 +103,11 @@ dependencies {
     //api "com.google.android.exoplayer:exoplayer-hls:${exoVersion}@aar"
     api "com.google.android.exoplayer:extension-ffmpeg:${exoVersionCustomExt}@aar"
     api 'com.google.guava:guava:24.1-android'
+
+    // cncb - Required for ExoPlayer custom mkv extractor (DTS-HD)
+    implementation "androidx.annotation:annotation:1.1.0"
+    compileOnly 'org.checkerframework:checker-qual:3.3.0'
+    compileOnly 'org.checkerframework:checker-compat-qual:2.5.0'
 
     // If you are rebuilding your own ijkplaer, then comment the lines above and
     // then uncomment these.

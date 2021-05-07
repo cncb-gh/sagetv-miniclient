@@ -170,6 +170,11 @@ public interface PrefStore {
         String exoplayer_ffmpeg_extension_setting = "exoplayer_ffmpeg_extension";
 
         /**
+         * If set to true, then DTS-HD is passed through for ExoPlayer
+         */
+        String dtshd_pass = "dtshd_pass";
+
+        /**
          * Boolean: if true, then only software decoders are used
          */
         String disable_hardware_decoders = "disable_hardware_decoders";
