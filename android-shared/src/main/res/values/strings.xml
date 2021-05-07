@@ -148,4 +148,6 @@
     <string name="exlink_app_not_found_msg2">No app could open %s.</string>
     <string name="exlink_exit_msg">Press STOP or BACK to return.</string>
     <string name="exlink_launch_msg">Launching %s...</string>
+    <string name="dtshd_pass_summary">Only enable this if your system supports it.  Standard DTS audio (non-HD) will fail to play.</string>
+    <string name="dtshd_pass_title">Bitstream DTS-HD/MA (pass-through) for MKV files</string>
 </resources>

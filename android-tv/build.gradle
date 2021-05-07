@@ -29,6 +29,12 @@ android {
         }
     }
 
+    // cncb - Required to avoid build error due to androidx.annotation reference in android-shared
+    // build.gradle necessary for custom mkv extractor for ExoPlayer (DTS-HD)
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+
 
     defaultConfig {
         applicationId "jvl.sage.miniclient.android.tv.debug"
@@ -94,7 +100,7 @@ android {
         {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.debug
         }
     }
 
